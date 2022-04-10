@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     async search() {
+      
       if(this.searchKey.length > 3) {
         await this.$axios.$get( process.env.baseURL + `/search?query=${this.searchKey}`, {
           headers: {
