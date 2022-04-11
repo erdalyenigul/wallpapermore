@@ -54,17 +54,15 @@ export default {
       selectedPhotosPagination: true,
       searchPagination: false,
       tags: [
-        'sky', 
-        'mountain', 
-        'road', 
-        'cloud', 
-        'beach', 
-        'flower', 
-        'macro', 
-        'rain', 
-        'color', 
-        'black', 
-        'white'
+        'sky',
+        'mountain',
+        'road',
+        'cloud',
+        'beach',
+        'flower',
+        'macro',
+        'rain',
+        'black'
       ]
     }
   },
@@ -134,7 +132,7 @@ export default {
 		.welcomeMsg{display:flex; justify-content: center; width:100%; font-size:16px; line-height: 22px; text-align:center;}
   }
   .searchLine{width:100%; display:flex; margin-bottom:20px;
-    input{border:1px solid #007bff; font-size:22px; text-align:center; border-radius:10px 0 0 10px; width:calc(100% - 120px); padding:10px; outline:0; height:60px; border-right:0;}
+    input{display:flex; align-items:center; border:1px solid #007bff; font-size:22px; border-radius:10px 0 0 10px; width:calc(100% - 120px); padding:10px 10px 10px 20px; outline:0; height:60px; border-right:0;}
     a{height:60px; width:120px; background-color:#007bff; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:0 10px 10px 0;
       &:hover{text-decoration:none;}
     }
@@ -162,6 +160,8 @@ export default {
     .header .welcomeMsg{display:none;}
     .imgListWrap{padding:10px;}
     .tags{padding: 20px 0;}
+    .searchLine input{font-size:16px; height:50px; border-radius:5px 0 0 5px; width:calc(100% - 80px);}
+    .searchLine a{font-size:16px; height:50px; border-radius:0 5px 5px 0; width:80px;}
   }
 </style>
 
