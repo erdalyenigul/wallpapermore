@@ -1,11 +1,11 @@
 <template>
-  <div class="container-fluid WMwrap">
+  <div class="container-fluid content">
     <div class="detailHead" v-if="photoDetail">
       <div class="imgInfo" v-if="photoDetail.alt">
         <div class="headLeft">
           <div class="description">{{ photoDetail.alt }} </div>
         </div>
-        <a class="downloadBtn" @click="downloadImg()" :title="photoDetail.alt">Download Wallpaper</a>
+        <a href="javascript:;" class="downloadBtn" @click="downloadImg()" :title="photoDetail.alt">Download Wallpaper</a>
       </div>
     </div>
     <div class="imgWrap" v-if="photoDetail">
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .WMwrap{display:flex; align-items:flex-start; flex-wrap:wrap; padding:0; min-height:100vh;}
+  .content{display:flex; align-items:flex-start; flex-wrap:wrap; padding:0; min-height:100vh;}
   .imgWrap{width:100%; max-width:800px; margin:0 auto; padding:40px; display:flex; justify-content:center;
     img{width:100%;}
   }
@@ -66,7 +66,9 @@ export default {
     .headLeft{display:flex; align-items:center;
       .description{display:flex; align-items:center; height:40px; font-size:20px; font-weight:600;}
     }
-    .downloadBtn{cursor:pointer; width:200px; display:flex; align-items:center; justify-content:center; background-color:#007bff; color:#fff!important; padding:10px 20px; border-radius:30px;}
+    .downloadBtn{cursor:pointer; text-decoration:none; width:200px; display:flex; align-items:center; justify-content:center; background-color:#007bff; color:#fff!important; padding:10px 20px; border-radius:30px;
+      &:hover{text-decoration:none;}
+    }
   }
 
   @media (max-width:767px) {
