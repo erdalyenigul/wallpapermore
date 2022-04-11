@@ -69,15 +69,11 @@ export default {
     }
   },
   methods: {
-    scrollToTop() {
-      window.scrollTo(0, 0);
-    },
     searchTag(tag) {
       this.searchKey = tag;
       this.searchPhoto();
     },
     async searchPhoto(type) {
-      this.scrollToTop();
       this.selectedPhotosPagination = false;
       this.searchPagination = true;
       if(type == 'next') {
@@ -96,7 +92,6 @@ export default {
       });
     },
     async getPhotos(type) {
-      this.scrollToTop();
       this.searchPagination = false;
       this.selectedPhotosPagination = true;
       if(type == 'next') {
@@ -140,7 +135,7 @@ export default {
   }
   .searchLine{width:100%; display:flex; margin-bottom:20px;
     input{border:1px solid #007bff; font-size:22px; text-align:center; border-radius:10px 0 0 10px; width:calc(100% - 120px); padding:10px; outline:0; height:60px; border-right:0;}
-    a{height:80px; width:120px; background-color:#007bff; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:0 10px 10px 0;
+    a{height:60px; width:120px; background-color:#007bff; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:0 10px 10px 0;
       &:hover{text-decoration:none;}
     }
   }
