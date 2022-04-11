@@ -1,14 +1,11 @@
 <template>
   <div class="container-fluid WMwrap">
     <div class="detailHead" v-if="photoDetail">
-      <div class="headBtns">
-        <a class="backBtn" href="javascript:;" @click="backToMain()"> 
-          <b-icon-chevron-left></b-icon-chevron-left>
-        </a>
-        <a class="downloadBtn" @click="downloadImg()" :title="photoDetail.alt">Download Wallpaper</a>
-      </div>
       <div class="imgInfo" v-if="photoDetail.alt">
-        <div class="description">{{ photoDetail.alt }} </div>
+        <div class="headLeft">
+          <div class="description">{{ photoDetail.alt }} </div>
+        </div>
+        <a class="downloadBtn" @click="downloadImg()" :title="photoDetail.alt">Download Wallpaper</a>
       </div>
     </div>
     <div class="imgWrap" v-if="photoDetail">
@@ -26,9 +23,6 @@ export default {
     }
   },
   methods: {
-    backToMain() {
-      this.$router.push('/')
-    },
     async downloadImg(){
       const fileName = this.photoDetail.src.original;
       try {
@@ -37,7 +31,7 @@ export default {
         const url = await URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = 'photo' + this.photoDetail.id + 'jpg';
+        a.download = 'photo' + this.photoDetail.id;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -68,22 +62,24 @@ export default {
     img{width:100%;}
   }
   .detailHead{width:100%; height:90px; align-items:center; display:flex; justify-content:center; align-items:center; background-color:#fff; border-bottom:1px solid #ddd;}
-  .imgInfo{display:flex; width:calc(100% - 400px); flex-wrap:wrap; padding:20px; flex-direction:column; border-left:1px solid #ddd;
-    .description{font-size:18px; font-weight:600;}
-    .photographer{font-size:14px; font-style:italic;}
-  }
-  .headBtns{display:flex; width:400px; padding:10px 40px;
-    .backBtn{cursor:pointer; padding:3px 10px; display: flex; align-items: center; justify-content: center; color:#fff; background-color:#222; margin-right:10px;
-      svg{font-size:22px; font-weight:600;}
+  .imgInfo{display:flex; width:100%; flex-wrap:wrap; padding:20px; align-items:center; justify-content: space-between;
+    .headLeft{display:flex; align-items:center;
+      .description{display:flex; align-items:center; height:40px; font-size:20px; font-weight:600;}
     }
-    .downloadBtn{cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; background-color:#007bff; color:#fff!important; padding:10px 20px;}
+    .downloadBtn{cursor:pointer; width:200px; display:flex; align-items:center; justify-content:center; background-color:#007bff; color:#fff!important; padding:10px 20px; border-radius:30px;}
   }
 
   @media (max-width:767px) {
     .detailHead{flex-direction:column; height:auto;
       .headBtns{width:100%; padding:30px 40px;}
-      .imgInfo{width:100%; padding:0 40px 30px;}
+      .imgInfo{width:100%; padding:20px;
+        .headLeft{width:100%; margin-bottom: 20px; flex-direction: column; position:relative;
+          .description{height: auto; padding: 0; margin: 0; text-align: center;}
+        } 
+        .downloadBtn{width:100%;}
+      }
     }
+    .imgWrap{padding:20px;}
   }
 </style>
 
