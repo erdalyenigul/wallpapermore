@@ -144,7 +144,7 @@ export default {
     }
   }
   .tags{display:flex; justify-content:center;  align-items:center; flex-wrap: wrap; gap:10px; width:100%; padding:20px 0; border-bottom:1px solid #f1f1f1; margin-bottom:20px;
-    .tagHead{display:flex; width:100%; margin-bottom:10px; font-size:18px; justify-content:center;}
+    .tagHead{display:flex; justify-content:center; width:100%; margin-bottom:10px; font-size:18px; text-align:center;}
     a{padding:5px 20px; color:#fff; color:#333; flex:1 1 auto; text-align:center; border:1px solid #f1f1f1; border-radius:6px;
       &:hover{text-decoration:none; background-color:#f1f1f1;}
     }
@@ -168,9 +168,7 @@ export default {
   .totalPage{width:100%; display:flex; align-items:center; justify-content:center; margin-bottom:100px;}
 
   @media (max-width:767px) {
-    .header{padding:20px; border-radius:0;}
-    .header .welcomeHead{font-size:22px; line-height:26px; margin-bottom:0;}
-    .header .welcomeMsg{display:none;}
+    .tags .tagHead{font-size:15px; line-height:18px;}
     .imgListWrap{padding:10px;}
     .tags{padding: 20px 0;}
     .searchLine input{font-size:16px; height:50px; border-radius:5px 0 0 5px; width:calc(100% - 80px);}
