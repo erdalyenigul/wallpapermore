@@ -16,10 +16,16 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: `Wallpaper: ${this.title}`
+    }
+  },
   data() {
     return {
       photoId: '',
-      photoDetail: ''
+      photoDetail: '',
+      title: '..' 
     }
   },
   methods: {
@@ -46,6 +52,7 @@ export default {
         }
       }).then((response) => {
         this.photoDetail = response;
+        this.title = response.alt;
       });
     }
   },
